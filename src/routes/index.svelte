@@ -1,2 +1,23 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+ import client from '../client.js';
+ import { onMount } from 'svelte';
+
+ let alerts = [];
+
+ onMount(async function() {
+     const { data, error } = await client
+         .view("allGallery")
+         .readRows({ offset: 0, limit: 10, order: "desc" })
+         .toPromise();
+     alerts = await data.nodes;
+
+ });
+
+</script>
+<h1>Alert Gallery</h1>
+
+<ul>
+    {#each alerts as alert}
+        <li>{alert.title}</li>
+    {/each}
+</ul>
