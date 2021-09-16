@@ -7,7 +7,7 @@
     </p>
 
     <h3>1. Buka halaman custom alert</h3>
-    <p>Silakan menuju ke tautan <a href="https://saweria.co/overlays/custom/alert/settings" target="_blank">https://saweria.co/overlays/custom/alert/settings</a>. Di halaman tersebut terdapat beberapa opsi.</p>
+    <p>Silakan menuju ke tautan <a href="https://saweria.co/overlays/custom/alert/settings" target="_blank">https://saweria.co/overlays/custom/alert/settings</a>. Di halaman tersebut terdapat beberapa opsi. <img src="/halaman.png" alt="halaman custom alert" /></p>
     <h3>2. Copy HTML</h3>
     <p>Lakukan copy isi html di web ini lalu paste ke halaman custom saweria yang telah dibuka tadi. Pastikan kamu paste di bagian yang tepat ya, yaitu HTML. Kamu juga dapat melakukan kustomisasi tambahan.</p>
 
