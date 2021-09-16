@@ -1,8 +1,25 @@
 <script>
  import { onMount } from 'svelte';
+ import { selectTextOnFocus } from '$lib/inputDirectives.js';
+
  import client from '../client.js';
 
  let alerts = [];
+ let textareaCss, textareaHtml;
+
+ function copyCss() {
+     console.log("Copying css..");
+     textareaCss.select();
+     document.execCommand('copy');
+     textareaCss.selectionStart = textareaCss.selectionEnd = 1;
+ }
+ function copyHtml() {
+     console.log("Copying html..");
+     textareaHtml.select();
+     document.execCommand('copy');
+     textareaHtml.selectionStart = textareaHtml.selectionEnd = 1;
+
+ }
 
  onMount(async function() {
      const { data, error } = await client
@@ -15,24 +32,28 @@
 
 </script>
 <header>
+    <img src="https://saweria.co/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fsrc%2Fassets%2Fcapy_happy.f9952a83bb275798fdd3843efb633064.svg&w=640&q=75" alt="Saweria logo" />
     <h1>Alert Gallery</h1>
+    <nav>
+        <a href="/cara">Cara Penggunaan</a>
+    </nav>
 </header>
 <main>
     <article>
             {#each alerts as alert}
-                <h3>{alert.title}</h3>
+                <h4>{alert.title}</h4>
                 <div class="alert">
                     <div class="thumbnail"><img alt={alert.title + " preview"} src={alert.thumbnail} /></div>
                     <div class="codes">
                         <div class="code-html">
                             <h4>HTML</h4>
-                            <button>Copy</button>
-                            <textarea name="css" id="" rows="6" cols="48" tabindex="" readonly>{alert.html}</textarea>
+                            <button on:click={copyHtml}>Copy</button>
+                            <textarea bind:this={textareaHtml} name="html" id="" rows="6" cols="48" tabindex="" readonly use:selectTextOnFocus>{alert.html}</textarea>
                         </div>
                         <div class="code-css">
                             <h4>CSS</h4>
-                            <button>Copy</button>
-                            <textarea name="css" id="" rows="6" cols="48" tabindex="" readonly >{alert.css}</textarea>
+                            <button on:click={copyCss}>Copy</button>
+                            <textarea bind:this={textareaCss} name="css" id="" rows="6" cols="48" tabindex="" readonly use:selectTextOnFocus>{alert.css}</textarea>
                         </div>
                     </div>
                 </div>
@@ -44,7 +65,11 @@
 
 <style type="text/css" media="screen">
  /* Sumber: https://moderncss.dev/css-button-styling-guide/ */
-    img {
+ header > img {
+     width: 5rem;
+     height: auto;
+ }
+    .thumbnail > img {
     border: 2px solid red;
     border-radius: 8px;
     width: 200px;
