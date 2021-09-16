@@ -1,6 +1,7 @@
 <script>
  import { onMount } from 'svelte';
  import { selectTextOnFocus } from '$lib/inputDirectives.js';
+ import Header from '../components/header.svelte';
 
  import client from '../client.js';
 
@@ -31,13 +32,7 @@
  });
 
 </script>
-<header>
-    <img src="https://saweria.co/_next/image?url=%2F_next%2Fstatic%2Fimage%2Fsrc%2Fassets%2Fcapy_happy.f9952a83bb275798fdd3843efb633064.svg&w=640&q=75" alt="Saweria logo" />
-    <h1>Alert Gallery</h1>
-    <nav>
-        <a href="/cara">Cara Penggunaan</a>
-    </nav>
-</header>
+<Header />
 <main>
     <article>
             {#each alerts as alert}
@@ -65,61 +60,57 @@
 
 <style type="text/css" media="screen">
  /* Sumber: https://moderncss.dev/css-button-styling-guide/ */
- header > img {
-     width: 5rem;
+ .thumbnail > img {
+     border: 2px solid red;
+     border-radius: 8px;
+     width: 200px;
      height: auto;
  }
-    .thumbnail > img {
-    border: 2px solid red;
-    border-radius: 8px;
-    width: 200px;
-    height: auto;
-    }
-    .alert {
-    display: flex;
-    align-items: center;
-    }
-    .thumbnail {
-    flex: 1;
-    padding-right: 1rem;
-    }
-    .codes {
-    flex: 3;
-    }
+ .alert {
+     display: flex;
+     align-items: center;
+ }
+ .thumbnail {
+     flex: 1;
+     padding-right: 1rem;
+ }
+ .codes {
+     flex: 3;
+ }
 
-    textarea {
-    resize: vertical;
-    font-size: 16px;
-    font-size: max(16px, 1em);
-    font-family: inherit;
-    padding: 0.25em 0.5em;
-    background-color: #fff;
-    border: 2px solid #8b8a8b;
-    border-radius: 4px;
-    }
-    textarea:focus {
-    border-color: hsl(245, 100%, 42%);
-    box-shadow: 0 0 0 3px hsla(245, 100%, calc(42% + 40%), 0.8);
-    transition: 180ms box-shadow ease-in-out;
-    outline: 3px solid transparent;
-    }
-    button {
-    box-sizing: border-box;
-    border: none;
-    background-color: transparent;
-    font-family: inherit;
-    font-size: 0.75rem;
-    padding: 0;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #3e68ff;
-    color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
-    /* padding: 0.25em 0.75em; */
- min-width: 8ch;
+ textarea {
+     resize: vertical;
+     font-size: 16px;
+     font-size: max(16px, 1em);
+     font-family: inherit;
+     padding: 0.25em 0.5em;
+     background-color: #fff;
+     border: 2px solid #8b8a8b;
+     border-radius: 4px;
+ }
+ textarea:focus {
+     border-color: hsl(245, 100%, 42%);
+     box-shadow: 0 0 0 3px hsla(245, 100%, calc(42% + 40%), 0.8);
+     transition: 180ms box-shadow ease-in-out;
+     outline: 3px solid transparent;
+ }
+ button {
+     box-sizing: border-box;
+     border: none;
+     background-color: transparent;
+     font-family: inherit;
+     font-size: 0.75rem;
+     padding: 0;
+     cursor: pointer;
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     background-color: #3e68ff;
+     color: #fff;
+     border-radius: 8px;
+     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.18);
+     /* padding: 0.25em 0.75em; */
+     min-width: 8ch;
      min-height: 32px;
      text-align: center;
      line-height: 1;

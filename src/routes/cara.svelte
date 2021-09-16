@@ -1,5 +1,10 @@
+<script>
+ import Header from '../components/header.svelte';
+
+</script>
+<Header />
 <main>
-    <h1>Cara Penggunaan</h1>
+    <h2>Cara Penggunaan</h2>
     <p>
         Ini adalah galeri untuk menyimpan custom alert yang dapat digunakan untuk kustomisasi alert Saweria. Berhubung belum ada fitur save dan load. Kamu dapat melakukan kustomisasi alert dengan syarat sudah mendapatkan fitur tersebut. Karena fitur ini masih belum sepenuhnya diluncurkan, atau sudah? Silakan cek tautan berikut <a href="https://saweria.co/overlays/custom/alert/settings" target="_blank">https://saweria.co/overlays/custom/alert/settings</a>. Jika kamu mendapatkan halaman error, 404, seperti ilustrasi dibawah artinya kamu belum kebagian fitur keren ini.
 
